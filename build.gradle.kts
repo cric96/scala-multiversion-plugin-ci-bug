@@ -22,6 +22,16 @@ allprojects {
         implementation("org.scala-lang:scala-library:%scala-version%")
         testImplementation("org.scalatest:scalatest_%%:3.1.1")
     }
+
+    tasks.register<JavaExec>("scalaTest"){
+        main = "org.scalatest.tools.Runner"
+        args("-R", "build/classes/scala/test", "-o")
+        classpath(sourceSets["test"].runtimeClasspath)
+    }
+
+    tasks {
+        "test" { dependsOn("scalaTest") }
+    }
 }
 
 project(":A") {
