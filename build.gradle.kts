@@ -4,9 +4,11 @@ plugins {
     id("org.nosphere.gradle.github.actions") version "1.2.0"
 }
 
-// for example:
-if (githubActions.running.get()) {
-    println("Commit SHA: ${githubActions.environment.sha.get()}")
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
+    }
 }
 
 buildscript {
