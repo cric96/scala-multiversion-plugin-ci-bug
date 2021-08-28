@@ -1,7 +1,9 @@
 plugins {
     idea
 	scala
+    id("org.nosphere.gradle.github.actions") version "1.2.0"
 }
+
 
 buildscript {
     repositories {

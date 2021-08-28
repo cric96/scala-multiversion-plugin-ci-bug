@@ -16,4 +16,4 @@ jobs:
         java-version: adopt@1.11
       uses: olafurpg/setup-scala@v11
     - name: Gradle run tests
-      run: ./gradlew build
+      run: ./gradlew build --scan
