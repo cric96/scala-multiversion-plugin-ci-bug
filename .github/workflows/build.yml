@@ -1,0 +1,19 @@
+name: Scala CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Scala and JDK
+      with:
+        java-version: adopt@1.11
+      uses: olafurpg/setup-scala@v11
+    - name: Gradle run tests
+      run: ./gradlew build
